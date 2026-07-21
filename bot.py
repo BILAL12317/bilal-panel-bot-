@@ -6,9 +6,19 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [
+        ["🛒 Products"],
+        ["💳 Payment", "📞 Contact"]
+    ]
+
+    reply_markup = ReplyKeyboardMarkup(
+        keyboard,
+        resize_keyboard=True
+    )
+
     await update.message.reply_text(
-        "👋 Welcome!\n\n"
-        "Use /products to view all products."
+        "👋 Welcome!\n\nSelect an option:",
+        reply_markup=reply_markup
     )
 
 async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
