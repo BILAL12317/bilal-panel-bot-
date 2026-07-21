@@ -27,8 +27,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=reply_markup
     )
 
-async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
+📞 CONTACT
+
+👤 Telegram: @YourUsername
+
+💬 Need help? Contact me on Telegram.
+
+⏰ Support: 24/7
+"""
+    await update.message.reply_text(text)
 🛒 PRODUCTS
 
 🔹 BR MOD PC VERSION
