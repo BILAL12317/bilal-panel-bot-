@@ -113,7 +113,8 @@ async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
 • 30 Days - ₹550
 """
     await update.message.reply_text(text)
-
+async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("💳 Payment details - Contact me")
 def main():
     app = Application.builder().token(TOKEN).build()
 
