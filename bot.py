@@ -59,3 +59,61 @@ async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🛒 Choose a Product:",
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    products = {
+        "brmod": "🔹 BR MOD PC VERSION",
+        "dripproxy": "🔹 DRIP CLIENT PROXY NON ROOT",
+        "pato": "🔹 PATO TEAM",
+        "brmods": "🔹 BR MODS ROOT + NON ROOT",
+        "reaper": "🔹 REAPER X PRO",
+        "prime": "🔹 PRIME HOOK NON ROOT",
+        "hex": "🔹 HEX BLADE CHEATS",
+        "hg": "🔹 HG CHEAT",
+        "hgproxy": "🔹 HG CHEAT PROXY",
+        "ios": "🔹 FLUORITE IOS FF",
+        "aim": "🔹 DRIP CLIENT PC AIM KILL",
+        "nonroot": "🔹 DRIP CLIENT NON ROOT",
+    }
+
+    product = products.get(query.data, "Unknown Product")
+
+    await query.edit_message_text(
+        f"🛒 {product}\n\n"
+        "💰 Contact admin for price.\n\n"
+        "Click Payment from the menu after payment."
+    )
+
+
+async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "💳 PAYMENT\n\n"
+        "Send your payment screenshot here after payment."
+    )
+
+
+async def receive_screenshot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+
+    await update.message.reply_text(
+        "✅ Payment screenshot received.\n"
+        "Admin will verify it soon."
+    )
+
+    await context.bot.forward_message(
+        chat_id=ADMIN_ID,
+        from_chat_id=update.effective_chat.id,
+        message_id=update.message.message_id,
+    )
+
+    await context.bot.send_message(
+        chat_id=ADMIN_ID,
+        text=(
+            f"📥 New Payment Screenshot\n\n"
+            f"👤 Name: {user.full_name}\n"
+            f"🆔 User ID: {user.id}\n"
+            f"📛 Username: @{user.username if user.username else 'None'}"
+        ),
+    )
