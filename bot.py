@@ -117,7 +117,8 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("products", products))
-
+app.add_handler(MessageHandler(filters.Regex("^🛒 Products$"), products))
+app.add_handler(MessageHandler(filters.Regex("^📞 Contact$"), contact))
     app.run_polling()
 
 if __name__ == "__main__":
