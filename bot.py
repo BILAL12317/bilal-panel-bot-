@@ -38,6 +38,8 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⏰ Support: 24/7
 """
     await update.message.reply_text(text)
+async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    text = """
 🛒 PRODUCTS
 
 🔹 BR MOD PC VERSION
