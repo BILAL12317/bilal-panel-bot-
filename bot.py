@@ -44,79 +44,25 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
 """
     await update.message.reply_text(text)
 async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = """
-🛒 PRODUCTS
-🔹 BR MOD PC VERSION
-• 1 Day - ₹100
-• 10 Days - ₹350
-• 30 Days - ₹650
+    keyboard = [
+        [InlineKeyboardButton("🔹 BR MOD PC VERSION", callback_data="brmod")],
+        [InlineKeyboardButton("🔹 DRIP CLIENT PROXY NON ROOT", callback_data="dripproxy")],
+        [InlineKeyboardButton("🔹 PATO TEAM", callback_data="pato")],
+        [InlineKeyboardButton("🔹 BR MODS ROOT + NON ROOT", callback_data="brmods")],
+        [InlineKeyboardButton("🔹 REAPER X PRO", callback_data="reaper")],
+        [InlineKeyboardButton("🔹 PRIME HOOK NON ROOT", callback_data="prime")],
+        [InlineKeyboardButton("🔹 HEX BLADE CHEATS", callback_data="hex")],
+        [InlineKeyboardButton("🔹 HG CHEAT", callback_data="hg")],
+        [InlineKeyboardButton("🔹 HG CHEAT PROXY", callback_data="hgproxy")],
+        [InlineKeyboardButton("🔹 FLUORITE IOS FF", callback_data="ios")],
+        [InlineKeyboardButton("🔹 DRIP CLIENT PC AIM KILL", callback_data="aim")],
+        [InlineKeyboardButton("🔹 DRIP CLIENT NON ROOT", callback_data="nonroot")],
+    ]
 
-🔹 DRIP CLIENT PROXY NON ROOT
-• 1 Day - ₹90
-• 3 Days - ₹120
-• 7 Days - ₹230
-• 30 Days - ₹549
-
-🔹 PATO TEAM
-• 3 Days - ₹300
-• 7 Days - ₹450
-• 15 Days - ₹600
-• 30 Days - ₹800
-
-🔹 BR MODS ROOT + NON ROOT
-• 1 Day - ₹90
-• 7 Days - ₹230
-• 15 Days - ₹399
-• 30 Days - ₹499
-
-🔹 REAPER X PRO ROOT + NON ROOT
-• 10 Days - ₹300
-
-🔹 PRIME HOOK NON ROOT
-• 1 Day - ₹90
-• 3 Days - ₹120
-• 7 Days - ₹210
-• 30 Days - ₹300
-
-🔹 HEX BLADE CHEATS ROOT
-• 1 Day - ₹100
-• 3 Days - ₹300
-• 7 Days - ₹390
-• 10 Days - ₹490
-• 15 Days - ₹590
-• 30 Days - ₹690
-
-🔹 HG CHEAT ROOT + NON ROOT
-• 1 Day - ₹100
-• 7 Days - ₹300
-• 10 Days - ₹400
-• 30 Days - ₹500
-
-🔹 HG CHEAT PROXY
-• 1 Day - ₹100
-• 3 Days - ₹200
-• 10 Days - ₹300
-• 30 Days - ₹500
-
-🔹 FLUORITE IOS FF
-• 1 Day - ₹300
-• 7 Days - ₹900
-• 30 Days - ₹1600
-
-🔹 DRIP CLIENT PC AIM KILL
-• 1 Day - ₹150
-• 7 Days - ₹300
-• 15 Days - ₹500
-• 30 Days - ₹600
-
-🔹 DRIP CLIENT NON ROOT
-• 1 Day - ₹90
-• 3 Days - ₹150
-• 7 Days - ₹230
-• 15 Days - ₹350
-• 30 Days - ₹550
-"""
-    await update.message.reply_text(text)
+    await update.message.reply_text(
+        "🛒 Choose a Product:",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+    )
 async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("💳 Payment details - Contact me")
 
