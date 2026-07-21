@@ -106,8 +106,10 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("products", products))
-    app.add_handler(MessageHandler(filters.Regex("^🛒 Products$"), products))
+    app.add_handler(CommandHandler("payment", payment))
     app.add_handler(CallbackQueryHandler(button))
+
+    app.add_handler(MessageHandler(filters.Regex("^🛒 Products$"), products))
     app.add_handler(MessageHandler(filters.Regex("^💳 Payment$"), payment))
     app.add_handler(MessageHandler(filters.Regex("^📞 Contact$"), contact))
     app.add_handler(MessageHandler(filters.PHOTO, receive_screenshot))
