@@ -31,7 +31,7 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 📞 CONTACT
 
-👤 Telegram: @YourUsername
+👤 Telegram: @BILALPANEL3
 
 💬 Need help? Contact me on Telegram.
 
