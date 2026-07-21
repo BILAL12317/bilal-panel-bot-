@@ -63,6 +63,18 @@ async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🛒 Choose a Product:",
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    if query.data == "brmod":
+        await query.edit_message_text("BR MOD PC VERSION")
+
+    elif query.data == "dripproxy":
+        await query.edit_message_text("DRIP CLIENT PROXY NON ROOT")
+
+    elif query.data == "pato":
+        await query.edit_message_text("PATO TEAM")
 async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("💳 Payment details - Contact me")
 
