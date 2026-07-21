@@ -41,7 +41,6 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 🛒 PRODUCTS
-
 🔹 BR MOD PC VERSION
 • 1 Day - ₹100
 • 10 Days - ₹350
