@@ -116,14 +116,19 @@ async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("💳 Payment details - Contact me")
 
 async def receive_screenshot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+
     await update.message.reply_text(
         "✅ Payment screenshot received.\nOur admin will verify it soon."
     )
-await context.bot.forward_message(
+
+    await context.bot.forward_message(
         chat_id=5053534694,
         from_chat_id=update.effective_chat.id,
         message_id=update.message.message_id,
-    )await context.bot.send_message(
+    )
+
+    await context.bot.send_message(
         chat_id=5053534694,
         text=(
             f"📥 New Payment Screenshot\n\n"
