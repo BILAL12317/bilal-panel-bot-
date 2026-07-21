@@ -114,19 +114,13 @@ async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("💳 Payment details - Contact me")
+
+async def receive_screenshot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "✅ Payment screenshot received.\nOur admin will verify it soon."
+    )
+
 def main():
     app = Application.builder().token(TOKEN).build()
-
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("products", products))
-
-    app.add_handler(MessageHandler(filters.Regex("^🛒 Products$"), products))
-    app.add_handler(MessageHandler(filters.Regex("^📞 Contact$"), contact))
-    app.add_handler(MessageHandler(filters.Regex("^💳 Payment$"), payment))
-    app.add_handler(MessageHandler(filters.PHOTO, receive_screenshot))
-
-    app.run_polling()
-
-
-if __name__ == "__main__":
-    main()
+    ...
+    
