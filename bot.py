@@ -113,7 +113,6 @@ async def receive_screenshot(update: Update, context: ContextTypes.DEFAULT_TYPE)
         ),
     )
 
-
 def main():
     app = Application.builder().token(TOKEN).build()
 
