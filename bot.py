@@ -122,5 +122,18 @@ async def receive_screenshot(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 def main():
     app = Application.builder().token(TOKEN).build()
-    ...
+
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("products", products))
+
+    app.add_handler(MessageHandler(filters.Regex("^🛒 Products$"), products))
+    app.add_handler(MessageHandler(filters.Regex("^💳 Payment$"), payment))
+    app.add_handler(MessageHandler(filters.Regex("^📞 Contact$"), contact))
+    app.add_handler(MessageHandler(filters.PHOTO, receive_screenshot))
+
+    app.run_polling()
+
+
+if __name__ == "__main__":
+    main()
     
