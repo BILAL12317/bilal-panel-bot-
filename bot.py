@@ -24,21 +24,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ["🛒 Products"],
         ["💳 Payment", "📞 Contact"],
     ]
-
     await update.message.reply_text(
         "👋 Welcome!\n\nSelect an option:",
         reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True),
     )
-
-
 async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "📞 CONTACT\n\n"
         "👤 Telegram: @BILALPANEL3\n\n"
         "💬 Need help? Contact me on Telegram."
     )
-
-
 async def products(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("🔹 BR MOD PC VERSION", callback_data="brmod")],
